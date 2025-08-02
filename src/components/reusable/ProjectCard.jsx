@@ -1,23 +1,26 @@
 // src/components/reusable/ProjectCard.jsx
 import React from 'react';
+import { FaArrowRight } from 'react-icons/fa';
 
-const ProjectCard = ({ project }) => {
+// KUNCI PERBAIKAN: Menerima prop 'onSelect'
+const ProjectCard = ({ project, onSelect }) => {
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
-      <img src={project.image} alt={project.title} className="w-full h-48 object-cover" />
-      <div className="p-6">
-        <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-white">{project.title}</h3>
-        <div className="flex flex-wrap gap-2 mb-4">
-          {project.tags.map((tag) => (
-            <span key={tag} className="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">
-              {tag}
-            </span>
-          ))}
-        </div>
-        <p className="text-gray-600 dark:text-gray-300 mb-4">{project.description}</p>
-        <a href={project.link} target="_blank" rel="noopener noreferrer" className="font-semibold text-blue-500 hover:underline">
-          Lihat Detail &rarr;
-        </a>
+    <div className="bg-gray-900 dark:bg-gray-800 border border-gray-700 dark:border-gray-600 rounded-xl overflow-hidden group">
+      <div className="w-full h-48 bg-gray-800 dark:bg-gray-700">
+        {/* Anda bisa menggunakan tag <img> di sini jika punya gambar */}
+        {/* <img src={project.image} alt={project.title} className="w-full h-full object-cover" /> */}
+      </div>
+      <div className="p-6 text-white">
+        <h3 className="text-lg font-bold mb-1">{project.title}</h3>
+        <p className="text-sm text-gray-400 mb-4">{project.description}</p>
+        
+        {/* KUNCI PERBAIKAN: Menggunakan <button> dengan onClick */}
+        <button
+          onClick={onSelect}
+          className="bg-gray-700 text-white text-xs font-semibold py-2 px-3 rounded-md flex items-center justify-between w-28 group-hover:bg-gray-600 transition-colors"
+        >
+          Details <FaArrowRight />
+        </button>
       </div>
     </div>
   );

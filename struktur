@@ -44,4 +44,5 @@
 ├── .gitignore
 ├── index.html
 ├── package.json
+├── tailwind.config.js
 └── vite.config.js

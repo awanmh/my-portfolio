@@ -1,7 +1,7 @@
 // src/components/main/Navbar.jsx
 import React from 'react';
 // Hapus ThemeToggle untuk sementara jika belum dibuat/didesain ulang
-// import ThemeToggle from '../reusable/ThemeToggle'; 
+import ThemeToggle from '../reusable/ThemeToggle'; 
 
 const Navbar = () => {
   const navLinks = [
@@ -36,7 +36,8 @@ const Navbar = () => {
                 {link.title}
               </a>
             ))}
-            {/* Letakkan ThemeToggle di sini jika ingin digunakan */}
+             {/* 2. Letakkan tombol di sini, di sebelah link Contact */}
+            <ThemeToggle />
           </div>
 
           {/* Tambahkan tombol menu untuk mobile di sini nanti */}
