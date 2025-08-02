@@ -1,0 +1,19 @@
+/my-portfolio
+├── node_modules/
+├── public/
+│   └── cv_setiawan.pdf       # Letakkan file CV Anda di sini
+├── src/
+│   ├── assets/               # Untuk menyimpan gambar/logo (seperti react.svg)
+│   ├── components/           # <--- BUAT FOLDER INI
+│   │   ├── Navbar.jsx
+│   │   ├── Home.jsx
+│   │   ├── About.jsx
+│   │   ├── Portfolio.jsx
+│   │   └── Contact.jsx
+│   ├── App.jsx               # File utama untuk menggabungkan semua komponen
+│   ├── index.css             # File untuk styling global Tailwind CSS
+│   └── main.jsx              # Titik masuk utama aplikasi React
+├── .gitignore
+├── index.html
+├── package.json
+└── vite.config.js
