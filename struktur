@@ -1,18 +1,46 @@
 /my-portfolio
 ├── node_modules/
 ├── public/
-│   └── cv_setiawan.pdf       # Letakkan file CV Anda di sini
+│   ├── cv_setiawan_muhammad.pdf    # File CV untuk fitur "Download CV"
+│   └── profile-picture.png         # Foto profil untuk bagian "About"
+│
 ├── src/
-│   ├── assets/               # Untuk menyimpan gambar/logo (seperti react.svg)
-│   ├── components/           # <--- BUAT FOLDER INI
-│   │   ├── Navbar.jsx
-│   │   ├── Home.jsx
-│   │   ├── About.jsx
-│   │   ├── Portfolio.jsx
-│   │   └── Contact.jsx
-│   ├── App.jsx               # File utama untuk menggabungkan semua komponen
-│   ├── index.css             # File untuk styling global Tailwind CSS
-│   └── main.jsx              # Titik masuk utama aplikasi React
+│   ├── assets/                     # Folder untuk semua aset media
+│   │   ├── projects/               # Gambar-gambar screenshot proyek
+│   │   │   ├── project-1.png
+│   │   │   └── project-2.png
+│   │   ├── certificates/           # Gambar-gambar sertifikat
+│   │   │   └── sertifikat-1.png
+│   │   └── tech-stack/             # Logo-logo teknologi yang dikuasai
+│   │       ├── react.svg
+│   │       ├── nodejs.svg
+│   │       └── python.svg
+│   │
+│   ├── components/                 # Folder inti untuk semua komponen UI
+│   │   ├── main/                   # Komponen utama per bagian/menu
+│   │   │   ├── OpeningAnimation.jsx
+│   │   │   ├── Navbar.jsx
+│   │   │   ├── Home.jsx
+│   │   │   ├── About.jsx
+│   │   │   ├── Portfolio.jsx
+│   │   │   └── Contact.jsx
+│   │   │
+│   │   └── reusable/               # Komponen kecil yang dipakai berulang
+│   │       ├── SectionTitle.jsx    # Judul untuk setiap seksi (e.g., "About Me")
+│   │       ├── ProjectCard.jsx     # Kartu untuk menampilkan satu proyek
+│   │       ├── ThemeToggle.jsx     
+│   │       └── SocialLinks.jsx     # Ikon-ikon link sosial media
+│   │
+│   ├── context/                 
+│   │       └── ThemeProvider.jsx     
+│   │
+│   ├── data/                       # Folder khusus untuk data website
+│   │   └── portfolioData.js        # Semua teks & info proyek/sertifikat
+│   │
+│   ├── App.jsx                     # File utama untuk menyusun semua komponen
+│   ├── index.css                   # Konfigurasi global Tailwind CSS
+│   └── main.jsx                    # Entry point aplikasi React (dari Vite)
+│
 ├── .gitignore
 ├── index.html
 ├── package.json

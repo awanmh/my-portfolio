@@ -1,3 +1,23 @@
+/* Mengimpor font "Inter" dari Google Fonts untuk tampilan yang modern dan bersih */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+/* Perintah dasar Tailwind CSS, ini wajib ada */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Layer 'base' digunakan untuk menambahkan atau menimpa style dasar.
+  Ini adalah cara yang direkomendasikan oleh Tailwind.
+*/
+@layer base {
+  /* Mengaktifkan smooth scroll untuk seluruh halaman saat navigasi di-klik */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Mengatur font default untuk seluruh website menjadi "Inter" */
+  body {
+    font-family: 'Inter', sans-serif;
+    @apply bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200;
+  }
+}

@@ -56,7 +56,7 @@ Jika Anda ingin menjalankan proyek ini di mesin lokal Anda, ikuti langkah-langka
 
 ---
 
-## 部署 (Deployment)
+## 🚀 Deployment
 
 Proyek ini dirancang untuk di-deploy secara statis dan gratis menggunakan platform seperti **[Vercel](https://vercel.com/)** atau **[Netlify](https://www.netlify.com/)**.
 
