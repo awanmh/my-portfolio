@@ -21,13 +21,20 @@ const containerVariants = {
 
 const itemVariants = {
   hidden: { opacity: 0, y: 40 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: 'easeOut' } },
-  exit: { opacity: 0, y: 20, transition: { duration: 0.6, ease: 'easeInOut' } },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: 'easeOut' },
+  },
+  exit: { opacity: 0, y: 20, transition: { duration: 0.4, ease: 'easeInOut' } },
 };
 
 const Portfolio = ({ onProjectClick }) => {
   const [activeTab, setActiveTab] = useState('projects');
 
+  // ==========================
+  // CONTENT RENDERER
+  // ==========================
   const renderContent = () => {
     switch (activeTab) {
       case 'projects':
@@ -44,9 +51,8 @@ const Portfolio = ({ onProjectClick }) => {
               <motion.div
                 key={project.id}
                 variants={itemVariants}
-                layout
                 whileHover={{ scale: 1.05 }}
-                className="relative rounded-2xl overflow-hidden p-4 shadow-xl bg-white/10 backdrop-blur-xl border border-white/20 cursor-pointer hover:shadow-2xl transition-all duration-500 ease-in-out"
+                className="relative rounded-2xl overflow-hidden p-4 shadow-xl bg-white/10 backdrop-blur-xl border border-white/20 cursor-pointer hover:shadow-2xl transition-all duration-500"
               >
                 <div
                   className="absolute inset-0 z-0 bg-cover bg-center blur-md scale-110 opacity-30"
@@ -77,8 +83,7 @@ const Portfolio = ({ onProjectClick }) => {
                 target="_blank"
                 rel="noopener noreferrer"
                 variants={itemVariants}
-                layout
-                className="relative block overflow-hidden rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl shadow-xl transition-all duration-500 ease-in-out hover:shadow-2xl"
+                className="relative block overflow-hidden rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl shadow-xl transition-all duration-500 hover:shadow-2xl"
               >
                 <img
                   src={cert.image}
@@ -104,9 +109,8 @@ const Portfolio = ({ onProjectClick }) => {
               <motion.div
                 key={tech.id}
                 variants={itemVariants}
-                layout
                 whileHover={{ scale: 1.1, rotate: 1 }}
-                className="flex flex-col items-center justify-center gap-2 p-4 bg-white/20 dark:bg-gray-800/30 backdrop-blur-xl rounded-xl border border-white/20 shadow-md hover:shadow-lg transition-all duration-500 ease-in-out"
+                className="flex flex-col items-center justify-center gap-2 p-4 bg-white/20 dark:bg-gray-800/30 backdrop-blur-xl rounded-xl border border-white/20 shadow-md hover:shadow-lg transition-all duration-500"
               >
                 <span className="text-3xl text-blue-500">{tech.icon}</span>
                 <p className="text-sm font-semibold text-white dark:text-gray-200">{tech.name}</p>
@@ -123,15 +127,18 @@ const Portfolio = ({ onProjectClick }) => {
   return (
     <section
       id="portfolio"
-      className="relative min-h-screen py-20 bg-gradient-to-br dark:from-[#0f172a] via-[#1e293b] to-black dark:text-white"
+      className="relative min-h-screen py-20 bg-gradient-to-br dark:from-[#0f172a] via-[#1e293b] to-black dark:text-white overflow-hidden"
     >
       <MeteorBackground />
 
       <div className="container mx-auto px-4">
+        {/* ========================== */}
+        {/* TITLE — Always Re-animate */}
+        {/* ========================== */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.3 }}
+          viewport={{ once: false, amount: 0.4 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
           className="text-center mb-12"
         >
@@ -139,11 +146,13 @@ const Portfolio = ({ onProjectClick }) => {
           <p className="text-gray-400">A showcase of what I’ve created and learned.</p>
         </motion.div>
 
-        {/* Tabs */}
+        {/* ========================== */}
+        {/* TABS — Animate on View */}
+        {/* ========================== */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.2 }}
+          viewport={{ once: false, amount: 0.3 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
           className="flex justify-center mb-12"
         >
@@ -152,7 +161,7 @@ const Portfolio = ({ onProjectClick }) => {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`flex items-center gap-2 px-6 py-2 text-sm font-medium rounded-full transition-all duration-500 ease-in-out ${
+                className={`flex items-center gap-2 px-6 py-2 text-sm font-medium rounded-full transition-all duration-500 ${
                   activeTab === tab.id
                     ? 'bg-gradient-to-r from-indigo-500 to-blue-500 text-white shadow-lg'
                     : 'text-black dark:text-white hover:bg-white/10'
@@ -164,7 +173,9 @@ const Portfolio = ({ onProjectClick }) => {
           </div>
         </motion.div>
 
-        {/* Content */}
+        {/* ========================== */}
+        {/* CONTENT */}
+        {/* ========================== */}
         <AnimatePresence mode="wait">{renderContent()}</AnimatePresence>
       </div>
     </section>
