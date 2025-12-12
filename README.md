@@ -2,9 +2,6 @@
 
 Selamat datang di repositori kode untuk website portofolio pribadi saya. Website ini dibangun untuk menampilkan proyek, keahlian, dan perjalanan saya di dunia teknologi, khususnya dalam bidang Full-Stack Development dan Cyber Security.
 
-![Screenshot Proyek](https://via.placeholder.com/800x400.png?text=Ganti+dengan+Screenshot+Website+Anda)
-*(**Catatan**: Ganti gambar placeholder di atas dengan screenshot website Anda jika sudah jadi)*
-
 ---
 
 ## ✨ Fitur Utama
