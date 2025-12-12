@@ -192,9 +192,9 @@ export const projects = [
     totalTeknologi: 12,
     fiturUtama: 18,
     demoLink: "#",
-    githubLink: "https://github.com/awanmh/Materi-Dasar-Bug-Bounty/tree/main/script/reconnaissance",
+    githubLink: "https://github.com/awanmh/BelanjaKu",
     image: LogoBelanjaku, 
-    description: "Aplikasi e‑commerce dengan arsitektur halaman produk yang dinamis dan berbasis data.",
+    description: "Aplikasi e-commerce dengan arsitektur halaman produk yang dinamis dan berbasis data.",
     tags: [
     "Node.js",
     "TypeScript",
@@ -379,7 +379,7 @@ export const projects = [
     totalTeknologi: 11,
     fiturUtama: 12,
     demoLink: "#",
-    githubLink: "https://github.com/awanmh/simple-task-manager",
+    githubLink: "https://github.com/awanmh/Lumos",
     image: LumosIcon, 
     description: "LUMOS - Enterprise Forex Trading Bot",
     tags: [
@@ -414,7 +414,7 @@ export const projects = [
     totalTeknologi: 14,
     fiturUtama: 8,
     demoLink: "#",
-    githubLink: "https://github.com/awanmh/simple-task-manager",
+    githubLink: "https://github.com/awanmh/PengaduanMasyarakatRT-RW",
     image: AduanIcon, 
     description: "Aplikasi Pengaduan web untuk memudahkan warga melaporkan masalah kepada Ketua RT",
     tags: [
