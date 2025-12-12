@@ -7,7 +7,7 @@
 @tailwind utilities;
 
 /* Layer 'base' digunakan untuk menambahkan atau menimpa style dasar.
-  Ini adalah cara yang direkomendasikan oleh Tailwind.
+   Ini adalah cara yang direkomendasikan oleh Tailwind.
 */
 @layer base {
   /* Mengaktifkan smooth scroll untuk seluruh halaman saat navigasi di-klik */
@@ -18,6 +18,24 @@
   /* Mengatur font default untuk seluruh website menjadi "Inter" */
   body {
     font-family: 'Inter', sans-serif;
-    @apply bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200;
+    @apply bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 antialiased transition-colors duration-300;
+    line-height: 1.6;
+    letter-spacing: 0.01em;
+  }
+
+  /* Styling scrollbar agar lebih modern */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(100, 116, 139, 0.4); /* slate-500/40 */
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(100, 116, 139, 0.7);
   }
 }

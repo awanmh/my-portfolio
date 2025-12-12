@@ -1,75 +1,115 @@
 // src/components/main/Home.jsx
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaArrowRight, FaEnvelope } from 'react-icons/fa';
-// Impor ilustrasi Anda
-import heroIllustration from '../../assets/hero-illustration.png'; 
+import { HiArrowNarrowRight, HiMail } from 'react-icons/hi';
+import { LuSparkles } from 'react-icons/lu';
+import heroIllustration from '../../assets/hero-illustration.png';
+import MeteorBackground from '../effects/MeteorBackground';
+
+const containerVariants = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.2,
+      ease: 'easeOut',
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 40 },
+  show: { opacity: 1, y: 0, transition: { duration: 1.2, ease: 'easeOut' } },
+};
 
 const Home = () => {
   return (
-    <section id="home" className="min-h-screen flex items-center bg-white dark:bg-gray-900 pt-24 md:pt-0">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-          
-          {/* Kolom Kiri: Teks & Konten */}
-          <motion.div 
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            {/* Badge */}
-            <span className="inline-block bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-300 text-sm font-semibold px-4 py-1 rounded-full mb-4">
-              Ready to Innovate
+    <section
+      id="home"
+      className="relative min-h-screen flex items-center bg-gradient-to-b from-white to-gray-100 dark:from-gray-900 dark:to-black pt-24 md:pt-0 overflow-hidden"
+    >
+      {/* Background Meteors */}
+      <MeteorBackground />
+
+      <div className="w-full max-w-screen-xl mx-auto px-6 md:px-10 relative z-10">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: false, amount: 0.3 }}
+          className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center"
+        >
+          {/* Kolom Kiri */}
+          <motion.div variants={itemVariants}>
+            <span className="inline-flex items-center gap-2 bg-black dark:bg-white text-white dark:text-black text-sm font-medium px-4 py-1 rounded-full shadow-md tracking-wide uppercase mb-5 animate-pulse">
+              <LuSparkles /> Ready to Innovate
             </span>
 
-            {/* Judul Utama */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 dark:text-white leading-tight mb-2">
-              Fullstack <span className="text-blue-500">|</span> Cyber
-              <br/>
-              Developer <span className="text-blue-500">|</span> Security
-            </h1>
+            <motion.h1
+              variants={itemVariants}
+              className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 dark:text-white leading-snug mb-4"
+            >
+              <span className="bg-gradient-to-r from-black to-blue-600 dark:from-white dark:to-cyan-500 bg-clip-text text-transparent">
+                Fullstack Developer
+              </span>
+              <span className="text-3xl md:text-4xl text-blue-400 dark:text-blue-500 px-2">✦</span>
+              <span className="bg-gradient-to-r from-blue-600 to-black dark:from-cyan-400 dark:to-white bg-clip-text text-transparent">
+                Cyber Security
+              </span>
+            </motion.h1>
 
-            {/* Sub-judul */}
-            <p className="font-semibold text-gray-500 dark:text-gray-400 mb-6">
-              & Informatic Student
-            </p>
+            <motion.p variants={itemVariants} className="text-lg text-gray-600 dark:text-gray-400 font-medium mb-3">
+              & Informatics Student
+            </motion.p>
 
-            {/* Deskripsi */}
-            <p className="text-gray-600 dark:text-gray-300 mb-8 max-w-lg">
-              Designing the future, pushing boundaries, and fortifying the digital realm—this is the legacy I craft with every project I bring to life.
-            </p>
+            <motion.p
+              variants={itemVariants}
+              className="text-xl text-gray-600 dark:text-gray-300 mb-6 leading-relaxed max-w-xl"
+            >
+              Designing the future, pushing boundaries, and fortifying the digital realm,
+              this is the legacy I craft with every project I bring to life.
+            </motion.p>
 
-            {/* Tech Tags */}
-            <div className="flex flex-wrap gap-2 mb-8">
-              {['Node.js', 'Linux', 'SpringBoot', 'Laravel'].map(tag => (
-                <span key={tag} className="bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-200 text-sm font-medium px-3 py-1 rounded">
+            <motion.div variants={itemVariants} className="flex flex-wrap gap-3 mb-8">
+              {['Node.js', 'Linux', 'Python', 'Laravel', 'Scripting', 'Go', 'React.js'].map(tag => (
+                <span
+                  key={tag}
+                  className="text-sm font-medium px-4 py-1 text-gray-800 dark:text-white border border-gray-300 dark:border-gray-600 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition"
+                >
                   {tag}
                 </span>
               ))}
-            </div>
+            </motion.div>
 
-            {/* Tombol Aksi */}
-            <div className="flex flex-wrap gap-4">
-              <a href="#portfolio" className="bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-semibold py-3 px-6 rounded-lg flex items-center gap-2 transform hover:scale-105 transition-transform">
-                Projects <FaArrowRight />
+            <motion.div variants={itemVariants} className="flex flex-wrap gap-4">
+              <a
+                href="#portfolio"
+                className="bg-gradient-to-r from-black via-blue-600 to-cyan-400 text-white font-semibold py-3 px-6 rounded-xl shadow-lg flex items-center gap-2 hover:scale-105 transition-all duration-300 ease-in-out"
+              >
+                Projects <HiArrowNarrowRight size={18} />
               </a>
-              <a href="#contact" className="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 font-semibold py-3 px-6 rounded-lg flex items-center gap-2 transform hover:scale-105 transition-transform">
-                Contacts <FaEnvelope />
+              <a
+                href="#contact"
+                className="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white font-semibold py-3 px-6 rounded-xl shadow-md flex items-center gap-2 hover:scale-105 transition-all duration-300 ease-in-out"
+              >
+                Contact <HiMail size={18} />
               </a>
-            </div>
+            </motion.div>
           </motion.div>
 
-          {/* Kolom Kanan: Ilustrasi */}
-          <motion.div 
-            className="hidden md:block"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+          {/* Kolom Kanan */}
+          <motion.div
+            variants={itemVariants}
+            className="hidden md:flex justify-center items-center relative w-full h-full"
           >
-            <img src={heroIllustration} alt="Developer and Security Illustration" className="w-full h-auto" />
+            {/* Background Glow */}
+            <div className="absolute inset-0 bg-blue-400/20 dark:bg-blue-400/30 blur-3xl opacity-50 z-0" />
+            <img
+              src={heroIllustration}
+              alt="Developer and Security Illustration"
+              className="relative z-10 w-full h-auto max-h-[90vh] object-contain drop-shadow-2xl"
+            />
           </motion.div>
-
-        </div>
+        </motion.div>
       </div>
     </section>
   );

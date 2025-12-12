@@ -17,7 +17,7 @@ function App() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowOpening(false);
-    }, 7000); 
+    }, 6000); // Anda bisa sesuaikan kembali durasi ini
     return () => clearTimeout(timer);
   }, []);
 
@@ -34,21 +34,24 @@ function App() {
       <AnimatePresence>
         {showOpening && <OpeningAnimation />}
       </AnimatePresence>
-      
+
       {!showOpening && (
-        <div className={`bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen ${selectedProject ? "filter blur-sm" : ""} transition-filter duration-300`}>
+        <div
+          className={`bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen ${
+            selectedProject ? 'filter blur-sm' : ''
+          } transition-filter duration-300`}
+        >
           <Navbar />
+          {/* KEMBALIKAN KE STRUKTUR <main> */}
           <main>
             <Home />
             <About />
-            {/* KUNCI PERBAIKAN: Mengirim 'handleProjectClick' sebagai prop */}
             <Portfolio onProjectClick={handleProjectClick} />
             <Contact />
           </main>
         </div>
       )}
 
-      {/* KUNCI PERBAIKAN: Nama komponen dengan huruf besar */}
       <ProjectDetailModal
         project={selectedProject}
         onClose={handleCloseModal}

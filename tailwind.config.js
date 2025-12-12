@@ -1,15 +1,23 @@
+// tailwind.config.js
 /** @type {import('tailwindcss').Config} */
 export default {
-  // 1. Menambahkan mode gelap berbasis class
-  darkMode: "class", 
-  
+  darkMode: "class",
   content: [
-    // 2. Menambahkan index.html ke dalam path
-    "./index.html", 
+    "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      keyframes: {
+        meteor: {
+          "0%": { transform: "translate(0,0)", opacity: 1 },
+          "100%": { transform: "translate(-300px,300px)", opacity: 0 },
+        },
+      },
+      animation: {
+        meteor: "meteor 1.5s linear infinite",
+      },
+    },
   },
   plugins: [],
-}
+};

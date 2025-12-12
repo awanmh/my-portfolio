@@ -7,28 +7,40 @@
 ├── src/
 │   ├── assets/                     # Folder untuk semua aset media
 │   │   ├── projects/               # Gambar-gambar screenshot proyek
-│   │   │   ├── project-1.png
-│   │   │   └── project-2.png
+│   │   │   ├── icon.png
+│   │   │   ├── p1_ss1.png
+│   │   │   ├── p1_ss5.png
+│   │   │   ├── p2_ss1.png
+│   │   │   ├── p2_ss2.png
+│   │   │   └── p2_ss3.png
 │   │   ├── certificates/           # Gambar-gambar sertifikat
-│   │   │   └── sertifikat-1.png
+│   │   │   ├── sertifikatAI.png
+│   │   │   ├── sertifikatAndroid.png
+│   │   │   ├── sertifikatBackend.png
+│   │   │   ├── sertifikatDasarJava.png
+│   │   │   ├── sertifikatEH.png
+│   │   │   ├── sertifikatIBM.png
+│   │   │   └── sertifikatLinux.png
 │   │   └── tech-stack/             # Logo-logo teknologi yang dikuasai
-│   │       ├── react.svg
-│   │       ├── nodejs.svg
-│   │       └── python.svg
+│   │       ├── hero-illustration.png
+│   │       └── profile-picture.png
 │   │
 │   ├── components/                 # Folder inti untuk semua komponen UI
+│   │   ├── effects/                   # Komponen utama per bagian/menu
 │   │   ├── main/                   # Komponen utama per bagian/menu
 │   │   │   ├── OpeningAnimation.jsx
 │   │   │   ├── Navbar.jsx
 │   │   │   ├── Home.jsx
 │   │   │   ├── About.jsx
-│   │   │   ├── Portfolio.jsx
+│   │   │   ├── Portfolio.jsx 
+│   │   │   ├── PortfolioDetailModal.jsx 
 │   │   │   └── Contact.jsx
 │   │   │
 │   │   └── reusable/               # Komponen kecil yang dipakai berulang
 │   │       ├── SectionTitle.jsx    # Judul untuk setiap seksi (e.g., "About Me")
 │   │       ├── ProjectCard.jsx     # Kartu untuk menampilkan satu proyek
 │   │       ├── ThemeToggle.jsx     
+│   │       ├── InfoCard.jsx     
 │   │       └── SocialLinks.jsx     # Ikon-ikon link sosial media
 │   │
 │   ├── context/                 

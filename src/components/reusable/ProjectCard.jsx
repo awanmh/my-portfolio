@@ -8,7 +8,7 @@ const ProjectCard = ({ project, onSelect }) => {
     <div className="bg-gray-900 dark:bg-gray-800 border border-gray-700 dark:border-gray-600 rounded-xl overflow-hidden group">
       <div className="w-full h-48 bg-gray-800 dark:bg-gray-700">
         {/* Anda bisa menggunakan tag <img> di sini jika punya gambar */}
-        {/* <img src={project.image} alt={project.title} className="w-full h-full object-cover" /> */}
+        <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
       </div>
       <div className="p-6 text-white">
         <h3 className="text-lg font-bold mb-1">{project.title}</h3>
