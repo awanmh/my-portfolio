@@ -70,7 +70,7 @@ const Home = () => {
             </motion.p>
 
             <motion.div variants={itemVariants} className="flex flex-wrap gap-3 mb-8">
-              {['Node.js', 'Linux', 'Python', 'Laravel', 'Scripting', 'Go', 'React.js'].map(tag => (
+              {['CyberSecurity', 'Software Engineer', 'Machine Learning'].map(tag => (
                 <span
                   key={tag}
                   className="text-sm font-medium px-4 py-1 text-gray-800 dark:text-white border border-gray-300 dark:border-gray-600 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition"

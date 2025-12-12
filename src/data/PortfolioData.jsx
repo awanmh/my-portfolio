@@ -215,7 +215,6 @@ export const projects = [
     title: "Reconnaissance Script",
     longDescription: "RECON v16.0: Framework DAST modular dan stateful berbasis templat, mendukung crawling canggih, validasi sesi, deteksi tech stack, serta logika deteksi kustom untuk riset keamanan dan blue teaming.",
     images: [project4_ss1],
-    // KUNCI PERBAIKAN: Mengubah string panjang menjadi array of strings
     keyFeatures: [
     "AI Neural Engine v17: Analisis kontekstual dengan Google Gemini, prediksi path tersembunyi",
     "Hidden Asset Hunter: Rekonstruksi source code dari .js.map, deteksi Broken Link Hijacking",
