@@ -1,71 +1,58 @@
-# Portfolio Website Pribadi - [Setiawan Muhammad]
+# Setiawan Muhammad — Portfolio
 
-Selamat datang di repositori kode untuk website portofolio pribadi saya. Website ini dibangun untuk menampilkan proyek, keahlian, dan perjalanan saya di dunia teknologi, khususnya dalam bidang Full-Stack Development dan Cyber Security.
+Cinematic, monochrome portfolio engineered across 27 architectural layers. Inspired by the controlled visual language of David Fincher — dark, intentional, premium.
 
----
+## Stack
 
-## ✨ Fitur Utama
+- **Core**: React 19 + Vite
+- **Styling**: Tailwind CSS + CSS Custom Properties
+- **Typography**: Instrument Sans (display), Inter (body)
+- **Motion**: Framer Motion (Fincher easing: `cubic-bezier(0.22, 1, 0.36, 1)`)
+- **Analytics**: Plausible (privacy-first, cookie-free)
+- **Forms**: Formspree (honeypot + rate-limited)
+- **CI/CD**: GitHub Actions (lint, build, gzipped bundle guard, Lighthouse CI)
+- **Security**: Strict CSP (no `unsafe-inline`), HSTS preload
+- **Hosting**: Vercel (Edge CDN, immutable caching)
 
-* **Desain Modern & Responsif**: Tampilan yang optimal di berbagai perangkat, mulai dari desktop hingga mobile.
-* **Dark Mode**: Fitur ganti tema terang dan gelap untuk kenyamanan visual.
-* **Animasi Halus**: Transisi dan animasi interaktif yang dibangun dengan Framer Motion.
-* **Struktur Berbasis Komponen**: Dibangun dengan React untuk kode yang bersih dan mudah dikelola.
-* **Formulir Kontak**: Integrasi dengan layanan backend-less (seperti Formspree) untuk menerima pesan.
+## Experience Flow
 
----
+1. **Pre-Intro** → Black screen, da Vinci quote, "Begin the Sequence" button
+2. **Cinematic Intro** → Name + tagline, vinyl record, YouTube audio (Pixies), skip option
+3. **Main Site** → Hero → About → Expertise → Projects → Contact
 
-## 🚀 Teknologi yang Digunakan
+## Atmosphere
 
-Berikut adalah daftar teknologi utama dan library yang digunakan dalam proyek ini:
+- Film grain overlay (2-3% opacity, animated)
+- Edge vignette (radial gradient)
+- Ambient shadow drift (28s loop, muted red accent)
+- Light mode support (`.light` class)
 
-* **[Vite](https://vitejs.dev/)**: Sebagai build tool modern yang sangat cepat.
-* **[React](https://react.dev/)**: Library JavaScript untuk membangun User Interface.
-* **[Tailwind CSS](https://tailwindcss.com/)**: Framework CSS utility-first untuk styling yang cepat dan presisi.
-* **[Framer Motion](https://www.framer.com/motion/)**: Library untuk animasi yang kompleks dan deklaratif.
+## Development
 
----
+```bash
+npm install
+npm run dev
+npm run build
+```
 
-## 🛠️ Instalasi & Setup Lokal
+## Adding a Project
 
-Jika Anda ingin menjalankan proyek ini di mesin lokal Anda, ikuti langkah-langkah berikut:
+Edit `src/data/portfolio.js`:
 
-1.  **Clone Repositori**
-    ```bash
-    git clone https://github.com/awanmh/my-portfolio.git
-    ```
+```js
+{
+  id: 'project-id',
+  title: 'Name',
+  category: 'fullstack',
+  year: '2025',
+  problem: 'What gap existed?',
+  image: importedImage,
+  images: [],
+  tags: ['React'],
+  githubLink: 'https://...',
+}
+```
 
-2.  **Masuk ke Direktori Proyek**
-    ```bash
-    cd my-portfolio
-    ```
+## Author
 
-3.  **Install Dependensi**
-    Gunakan `npm` untuk menginstal semua paket yang dibutuhkan.
-    ```bash
-    npm install
-    ```
-
-4.  **Jalankan Development Server**
-    Proyek akan berjalan di `http://localhost:5173`.
-    ```bash
-    npm run dev
-    ```
-
----
-
-## 🚀 Deployment
-
-Proyek ini dirancang untuk di-deploy secara statis dan gratis menggunakan platform seperti **[Vercel](https://vercel.com/)** atau **[Netlify](https://www.netlify.com/)**.
-
----
-
-## 📧 Kontak
-
-* **GitHub**: [@awanmh](https://github.com/awanmh)
-* **LinkedIn**: `https://linkedin.com/in/setiawan-muhammad`
-
----
-
-## 📄 Lisensi
-
-Proyek ini dilisensikan di bawah **MIT License**. Lihat file `LICENSE` untuk detail lebih lanjut.
+**Setiawan Muhammad** — [GitHub](https://github.com/awanmh) · [LinkedIn](https://linkedin.com/in/setiawan-muhammad)

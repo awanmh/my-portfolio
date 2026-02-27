@@ -1,63 +1,83 @@
-// src/App.jsx
-import { useState, useEffect } from 'react';
+import { useState, useCallback, lazy, Suspense } from 'react';
 import { AnimatePresence } from 'framer-motion';
+import { ErrorBoundary } from './components/ui/ErrorBoundary';
+import PreIntro from './components/sections/PreIntro';
+import CinematicIntro from './components/sections/CinematicIntro';
+import Navbar from './components/sections/Navbar';
+import Hero from './components/sections/Hero';
+import { projects } from './data/portfolio';
 
-import Navbar from './components/main/Navbar';
-import Home from './components/main/Home';
-import About from './components/main/About';
-import Portfolio from './components/main/Portfolio';
-import Contact from './components/main/Contact';
-import OpeningAnimation from './components/main/OpeningAnimation';
-import ProjectDetailModal from './components/main/ProjectDetailModal';
+// Lazy load below-fold
+const About = lazy(() => import('./components/sections/About'));
+const Expertise = lazy(() => import('./components/sections/Expertise'));
+const TechStack = lazy(() => import('./components/sections/TechStack'));
+const Projects = lazy(() => import('./components/sections/Projects'));
+const Certificates = lazy(() => import('./components/sections/Certificates'));
+const ProjectModal = lazy(() => import('./components/sections/ProjectModal'));
+const Contact = lazy(() => import('./components/sections/Contact'));
+const AudioPlayer = lazy(() => import('./components/ui/AudioPlayer'));
 
-function App() {
-  const [showOpening, setShowOpening] = useState(true);
-  const [selectedProject, setSelectedProject] = useState(null);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowOpening(false);
-    }, 6000); // Anda bisa sesuaikan kembali durasi ini
-    return () => clearTimeout(timer);
-  }, []);
-
-  const handleProjectClick = (project) => {
-    setSelectedProject(project);
-  };
-
-  const handleCloseModal = () => {
-    setSelectedProject(null);
-  };
-
-  return (
-    <>
-      <AnimatePresence>
-        {showOpening && <OpeningAnimation />}
-      </AnimatePresence>
-
-      {!showOpening && (
-        <div
-          className={`bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen ${
-            selectedProject ? 'filter blur-sm' : ''
-          } transition-filter duration-300`}
-        >
-          <Navbar />
-          {/* KEMBALIKAN KE STRUKTUR <main> */}
-          <main>
-            <Home />
-            <About />
-            <Portfolio onProjectClick={handleProjectClick} />
-            <Contact />
-          </main>
-        </div>
-      )}
-
-      <ProjectDetailModal
-        project={selectedProject}
-        onClose={handleCloseModal}
-      />
-    </>
-  );
+// Dev-only schema validation
+if (import.meta.env.DEV) {
+  import('./lib/validate').then(({ validateProjects }) => {
+    validateProjects(projects);
+  });
 }
 
-export default App;
+export default function App() {
+  const [stage, setStage] = useState('preintro'); // preintro | cinematic | main
+  const [selectedProject, setSelectedProject] = useState(null);
+
+  const handleBegin = useCallback(() => {
+    setStage('cinematic');
+  }, []);
+
+  const handleCinematicComplete = useCallback(() => {
+    setStage('main');
+    document.body.style.overflow = '';
+  }, []);
+
+  return (
+    <ErrorBoundary>
+      {/* Atmospheric layers — always visible in main */}
+      {stage === 'main' && (
+        <>
+          <div className="grain" />
+          <div className="vignette" />
+          <div className="ambient-shadow" />
+        </>
+      )}
+
+      <AnimatePresence mode="wait">
+        {stage === 'preintro' && <PreIntro key="preintro" onBegin={handleBegin} />}
+
+        {stage === 'cinematic' && (
+          <CinematicIntro key="cinematic" onComplete={handleCinematicComplete} />
+        )}
+      </AnimatePresence>
+
+      {stage === 'main' && (
+        <>
+          <Navbar />
+          <main>
+            <Hero />
+            <Suspense fallback={null}>
+              <About />
+              <Expertise />
+              <TechStack />
+              <Projects projects={projects} onProjectClick={setSelectedProject} />
+              <Certificates />
+              <Contact />
+              <AudioPlayer />
+            </Suspense>
+          </main>
+          <Suspense fallback={null}>
+            {selectedProject && (
+              <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
+            )}
+          </Suspense>
+        </>
+      )}
+    </ErrorBoundary>
+  );
+}

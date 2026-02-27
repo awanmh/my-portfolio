@@ -1,21 +1,37 @@
-// tailwind.config.js
 /** @type {import('tailwindcss').Config} */
 export default {
-  darkMode: "class",
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./index.html", "./src/**/*.{js,jsx}"],
   theme: {
     extend: {
-      keyframes: {
-        meteor: {
-          "0%": { transform: "translate(0,0)", opacity: 1 },
-          "100%": { transform: "translate(-300px,300px)", opacity: 0 },
+      colors: {
+        ground: "var(--color-bg-ground)",
+        surface: "var(--color-bg-surface)",
+        elevated: "var(--color-bg-elevated)",
+        border: "var(--color-border)",
+        accent: {
+          DEFAULT: "var(--color-accent)",
+          hover: "var(--color-accent-hover)",
+          subtle: "var(--color-accent-subtle)",
         },
       },
-      animation: {
-        meteor: "meteor 1.5s linear infinite",
+      textColor: {
+        primary: "var(--color-text-primary)",
+        secondary: "var(--color-text-secondary)",
+        tertiary: "var(--color-text-tertiary)",
+        muted: "var(--color-text-muted)",
+      },
+      borderColor: {
+        DEFAULT: "var(--color-border)",
+        subtle: "var(--color-border-subtle)",
+      },
+      boxShadow: {
+        elevated: "var(--shadow-elevated)",
+        hover: "var(--shadow-hover)",
+      },
+      transitionDuration: {
+        fast: "var(--duration-fast)",
+        normal: "var(--duration-normal)",
+        slow: "var(--duration-slow)",
       },
     },
   },
