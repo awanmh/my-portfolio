@@ -1,8 +1,25 @@
+import { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { fadeUp, stagger } from '../../lib/motion';
 import { trackEvent } from '../../lib/analytics';
 
+const CATEGORIES = [
+  { id: 'all', label: 'All' },
+  { id: 'backend', label: 'Backend' },
+  { id: 'fullstack', label: 'Full-Stack' },
+  { id: 'ml', label: 'AI & ML' },
+  { id: 'security', label: 'Security' },
+  { id: 'mobile', label: 'Mobile' },
+];
+
 export default function Projects({ projects, onProjectClick }) {
+  const [activeCategory, setActiveCategory] = useState('all');
+
+  const filteredProjects = useMemo(() => {
+    if (activeCategory === 'all') return projects;
+    return projects.filter((p) => p.category === activeCategory);
+  }, [projects, activeCategory]);
+
   return (
     <section id="projects" className="py-[var(--space-section)]">
       <motion.div
@@ -18,12 +35,50 @@ export default function Projects({ projects, onProjectClick }) {
         >
           Portfolio
         </motion.p>
-        <motion.h2 variants={fadeUp} className="heading-section mb-14">
+        <motion.h2 variants={fadeUp} className="heading-section mb-8">
           Selected Work
         </motion.h2>
 
+        {/* Category Filters */}
+        <motion.div
+          variants={fadeUp}
+          className="mb-12 flex flex-wrap items-center gap-2 border-b border-[var(--color-border)] pb-4"
+        >
+          {CATEGORIES.map((cat) => {
+            const count =
+              cat.id === 'all'
+                ? projects.length
+                : projects.filter((p) => p.category === cat.id).length;
+            const isActive = activeCategory === cat.id;
+
+            return (
+              <button
+                key={cat.id}
+                onClick={() => {
+                  setActiveCategory(cat.id);
+                  trackEvent('filter_category', { category: cat.id });
+                }}
+                className={`flex items-center gap-2 border px-3 py-1.5 text-[11px] uppercase tracking-[0.15em] transition-all duration-300 ${
+                  isActive
+                    ? 'border-[var(--color-accent)] bg-[var(--color-bg-elevated)] text-[var(--color-text-primary)]'
+                    : 'border-transparent text-[var(--color-text-muted)] hover:border-[var(--color-border)] hover:text-[var(--color-text-secondary)]'
+                }`}
+              >
+                <span>{cat.label}</span>
+                <span
+                  className={`text-[9px] tabular-nums ${
+                    isActive ? 'text-[var(--color-accent)] font-semibold' : 'text-[var(--color-text-muted)]'
+                  }`}
+                >
+                  {count}
+                </span>
+              </button>
+            );
+          })}
+        </motion.div>
+
         <div className="grid gap-6 md:grid-cols-2">
-          {projects.map((project) => (
+          {filteredProjects.map((project) => (
             <motion.article
               key={project.id}
               variants={fadeUp}

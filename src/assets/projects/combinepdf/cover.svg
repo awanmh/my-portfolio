@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0E0E11" />
+      <stop offset="100%" stop-color="#141419" />
+    </linearGradient>
+    <pattern id="grid5" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#222228" stroke-width="0.7" />
+    </pattern>
+    <radialGradient id="glow5" cx="50%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="#8B3A3A" stop-opacity="0.18" />
+      <stop offset="100%" stop-color="#0E0E11" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#bg5)" />
+  <rect width="800" height="500" fill="url(#grid5)" />
+  <circle cx="400" cy="200" r="240" fill="url(#glow5)" />
+
+  <rect x="24" y="24" width="752" height="452" fill="none" stroke="#2A2A30" stroke-width="1" />
+  <text x="44" y="52" fill="#5A5A62" font-family="monospace" font-size="11" letter-spacing="3">CLI_TOOL // PRIVACY_FOCUSED_PDF_ENGINE</text>
+  <text x="756" y="52" fill="#8B3A3A" font-family="monospace" font-size="11" text-anchor="end" letter-spacing="2">[LOCAL-ONLY: ZERO LEAK]</text>
+
+  <!-- Terminal window graphic -->
+  <g transform="translate(400, 195)">
+    <rect x="-170" y="-75" width="340" height="150" rx="6" fill="#121216" stroke="#33333E" stroke-width="1.5" />
+    <!-- Terminal header -->
+    <rect x="-170" y="-75" width="340" height="24" rx="6" fill="#1A1A22" />
+    <circle cx="-152" cy="-63" r="4" fill="#8B3A3A" />
+    <circle cx="-138" cy="-63" r="4" fill="#5A5A62" />
+    <circle cx="-124" cy="-63" r="4" fill="#3A3A42" />
+    <text x="0" y="-60" fill="#8A8A90" font-family="monospace" font-size="9" text-anchor="middle">combine_pdf --interactive</text>
+
+    <!-- Terminal body -->
+    <text x="-150" y="-30" fill="#8B3A3A" font-family="monospace" font-size="11">$ combine_pdf scan ./docs</text>
+    <text x="-150" y="-10" fill="#8A8A90" font-family="monospace" font-size="10">[✓] Found 14 document segments</text>
+    <text x="-150" y="8" fill="#E8E8EA" font-family="monospace" font-size="10">[+] Sorting: natural numeric order</text>
+    <text x="-150" y="28" fill="#22C55E" font-family="monospace" font-size="10">[✓] Integrity checked: 100% Valid</text>
+    <text x="-150" y="50" fill="#E8E8EA" font-family="monospace" font-size="11">Merging: ━━━━━━━━━━━ 100% Done</text>
+  </g>
+
+  <text x="400" y="380" fill="#E8E8EA" font-family="sans-serif" font-size="28" font-weight="700" text-anchor="middle" letter-spacing="4">COMBINE_PDF</text>
+  <text x="400" y="410" fill="#8A8A90" font-family="sans-serif" font-size="12" text-anchor="middle" letter-spacing="2">SAFE &amp; ORDERED PDF COMBINER CLI WITH RICH UI</text>
+  <rect x="360" y="430" width="80" height="1" fill="#8B3A3A" />
+</svg>
