@@ -74,7 +74,11 @@ import pSS7 from '../assets/projects/serenity_spa/pic7.png';
 // Newly Integrated Project Assets
 import logoNova from '../assets/projects/nova/logo.png';
 import coverFlashSale from '../assets/projects/flashsale/cover.png';
-import coverStokku from '../assets/projects/stokku/cover.png';
+import logoStokku from '../assets/projects/stokku/logo.png';
+import stokkuSS1 from '../assets/projects/stokku/screenshot1.png';
+import stokkuSS2 from '../assets/projects/stokku/screenshot2.png';
+import stokkuLoginBg from '../assets/projects/stokku/login-bg.png';
+import logoSantri from '../assets/projects/portalsantri/logo.png';
 import logoIbuPintar from '../assets/projects/ibupintar/logo.png';
 import pIbu1 from '../assets/projects/ibupintar/brosur.png';
 import pIbu2 from '../assets/projects/ibupintar/frame2.png';
@@ -313,8 +317,8 @@ export const projects = [
       'Developed fullstack platform (TypeScript, Next.js/React, Node.js, AI integration) with automated demand forecasting and dynamic reorder triggers.',
     impact:
       'Intelligent inventory tracking, automated demand anomaly detection, and mobile-friendly stock control dashboard.',
-    image: coverStokku,
-    images: [coverStokku],
+    image: logoStokku,
+    images: [logoStokku, stokkuSS1, stokkuSS2, stokkuLoginBg],
     tags: ['TypeScript', 'Next.js', 'Node.js', 'Generative AI', 'PostgreSQL', 'Tailwind CSS', 'Docker'],
     demoLink: '#',
     githubLink: 'https://github.com/awanmh/Stokku.ai',
@@ -370,8 +374,8 @@ export const projects = [
       'Developed Laravel & Vue.js web platform with modular violation recording, guardian attendance reporting, and zone access control.',
     impact:
       'Streamlined student activity tracking across campus zones, transparent guardian reports, and digitized administrative workflows.',
-    image: pSantri1,
-    images: [pSantri1, pSantri2, pSantri3, pSantri4, pSantri5],
+    image: logoSantri,
+    images: [logoSantri, pSantri5, pSantri1, pSantri2, pSantri3, pSantri4],
     tags: ['PHP', 'Laravel', 'Vue.js', 'MySQL', 'Tailwind CSS', 'Role-Based Access'],
     demoLink: '#',
     githubLink: 'https://github.com/awanmh/PortalSantriCerdas',
