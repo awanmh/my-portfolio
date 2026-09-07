@@ -35,7 +35,6 @@ function useTypingEffect(text, startDelay, charSpeed = 55) {
 export default function CinematicIntro({ onComplete }) {
   // Phases: 0=black+jitter, 1=REC, 2=name, 3=type1, 4=type2, 5=blink, 6=escalate, 7=exit
   const [phase, setPhase] = useState(0);
-  const [glitchClass, setGlitchClass] = useState('');
   const [blinkVisible, setBlinkVisible] = useState(true);
   const iframeRef = useRef(null);
   const timersRef = useRef([]);
@@ -177,7 +176,7 @@ export default function CinematicIntro({ onComplete }) {
 
           {/* Center content */}
           <div
-            className={`relative max-w-2xl px-6 text-center ${glitchClass}`}
+            className="relative max-w-2xl px-6 text-center"
             style={{
               opacity: phase === 5 ? (blinkVisible ? 1 : 0) : 1,
               transition: phase === 5 ? 'none' : 'opacity 0.1s',
