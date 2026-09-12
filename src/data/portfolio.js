@@ -727,3 +727,147 @@ export const technologies = [
     ],
   },
 ];
+
+// ─── Work Experiences ────────────────────────────────────
+export const experiences = [
+  {
+    id: 'dl-cysec',
+    company: 'DoubleLogic',
+    role: 'Cyber Security Operations & Red Team Engineer',
+    period: 'Post-Promotion — Present',
+    location: 'Remote · Cloud & Production Infrastructure',
+    type: 'Full-Time',
+    badge: 'Solo Security Operator',
+    summary:
+      'Solely spearheaded comprehensive L1, L2, and L3 defensive and offensive cybersecurity operations across 7+ production Linux servers, safeguarding proprietary AI services, databases, and client-facing web ecosystems without secondary support.',
+    isSoloOperator: true,
+    levels: {
+      l1: {
+        title: 'Level 1: Triage & Continuous Monitoring',
+        points: [
+          'Real-time alert triage, telemetry ingestion, and authentication anomaly detection via Grafana & central SIEM pipelines.',
+          'Continuous monitoring of incoming traffic, firewall (UFW/iptables) event logs, and phishing/unauthorized access triage across 7 production host nodes.',
+          'Automated health probes and instant alerting routing via Microsoft Teams webhook pipelines.',
+        ],
+      },
+      l2: {
+        title: 'Level 2: Incident Investigation & Deep Forensics',
+        points: [
+          'Spearheaded incident response: investigated and eradicated an active RCE backdoor in repository DrTKola/YEG on Server 139.',
+          'Led deep forensic root-cause analysis for PMCare Ameyo attack vector, isolating infected components and restoring server integrity.',
+          'Performed emergency post-incident audits and malware/rootkit scanning across all 7 production environments with zero false negatives.',
+          'Conducted deep authentication log reviews, IOC (Indicators of Compromise) extraction, and shadow/PAM file integrity verification.',
+        ],
+      },
+      l3: {
+        title: 'Level 3: Advanced Remediation, Threat Hunting & AI Red Teaming',
+        points: [
+          'Authored custom Python and Bash security automation toolchains for automated recon, port auditing, and DB access control validation.',
+          'Engineered WAF tuning & virtual patching in Cloudflare to mitigate live exploits and harden web application perimeters.',
+          'Conducted simulated internal network penetration testing: evaluated lateral movement, privilege escalation vectors, and eliminated BOLA/IDOR flaws in REST/GraphQL APIs.',
+          'Spearheaded AI Red Teaming & LLM safety testing: crafted adversarial prompt injection test suites and boundary evaluations to prevent unauthorized agentic code execution.',
+          'Architected disaster recovery drills (ransomware simulation) and formulated incident response standard operating procedures (SOP).',
+        ],
+      },
+    },
+    skills: [
+      'Solo L1/L2/L3 SOC',
+      'Incident Response',
+      'Digital Forensics',
+      'Offensive Red Teaming',
+      'AI Red Teaming',
+      'WAF Tuning',
+      'Cloudflare',
+      'Malware Analysis',
+      'IAM Audit',
+      'Linux Hardening',
+      'SIEM Integration',
+    ],
+  },
+  {
+    id: 'dl-devops',
+    company: 'DoubleLogic',
+    role: 'DevOps & Infrastructure Engineer',
+    period: 'Initial Tenure · Remote',
+    location: 'Remote · Cloud Infrastructure',
+    type: 'Full-Time',
+    badge: 'Infrastructure & Automation',
+    summary:
+      'Engineered enterprise cloud infrastructure reliability, automated disaster recovery, and GPU compute cost optimization across distributed Ubuntu Linux server fleets.',
+    highlights: [
+      'Architected and maintained dozens of Linux (Ubuntu) server nodes across Production, Staging, and GPU clusters with zero unscheduled downtime.',
+      'Engineered an automated, timezone-aware GPU scheduler script slashing cloud compute costs significantly during idle off-peak hours.',
+      'Designed and deployed automated, encrypted database disaster recovery pipelines (MySQL & MongoDB) backed up to Cloudflare R2 and Exabytes with automated restore drills (RPO < 1 hour).',
+      'Deployed centralized Grafana observability with custom telemetry metrics (CPU, RAM, disk, Nginx access) connected to Microsoft Teams real-time incident alert webhooks.',
+      'Executed server access hardening: rotated SSH keys across all servers, disabled root password login, enforced strict PAM/UFW rules, and automated SSL/TLS provisioning.',
+      'Engineered Python Flask & Gunicorn webhook middleware for asynchronous, high-throughput inbound email processing and safe attachment handling.',
+    ],
+    skills: [
+      'Linux (Ubuntu)',
+      'Docker',
+      'Cloudflare R2',
+      'Disaster Recovery',
+      'Grafana',
+      'Prometheus',
+      'Nginx Hardening',
+      'Python Middleware',
+      'SSH Hardening',
+      'Bash Scripting',
+    ],
+  },
+  {
+    id: 'freelance-sec',
+    company: 'Independent Consultancy / Client Engagements',
+    role: 'Software Engineer & Security Researcher',
+    period: '2023 — Present',
+    location: 'Upwork & Global Remote Clients',
+    type: 'Contract / Independent',
+    badge: 'Client Impact & Bug Bounty',
+    summary:
+      'Delivered mission-critical backend refactoring, API integration gateways, and independent vulnerability research for international clients.',
+    highlights: [
+      'Configured and resolved mission-critical bugs in Evolution API (WhatsApp Gateway integration) on client production servers, eliminating race conditions and memory leaks.',
+      'Deployed and customized UVdesk enterprise helpdesk platforms including multi-mailbox integration and automated ticket routing.',
+      'Engineered end-to-end booking and scheduling web platforms for wellness businesses with automated transactional billing and notifications.',
+      'Conducted independent vulnerability assessments on client web applications, responsibly discovering and patching critical flaws (SQL Injection, XSS, BOLA/IDOR).',
+    ],
+    skills: [
+      'Evolution API',
+      'Node.js',
+      'UVdesk',
+      'PostgreSQL',
+      'Web Security',
+      'Burp Suite',
+      'API Engineering',
+      'Bug Bounty',
+    ],
+  },
+  {
+    id: 'telkom-asst',
+    company: 'Telkom University',
+    role: 'Computer Science Laboratory & Teaching Assistant',
+    period: 'Sep 2023 — Present',
+    location: 'Surabaya, Indonesia · Academic Laboratory',
+    type: 'Academic Appointment',
+    badge: 'Education & Mentorship',
+    summary:
+      'Instructed undergraduate engineers and managed university laboratory computing environments across cybersecurity, systems programming, and cloud computing.',
+    highlights: [
+      'Instructed and evaluated 100+ undergraduate engineering students across 8 subjects: Algorithms & Programming (Golang), Machine Learning (Python), Information System Security (Kali Linux), Cloud Computing (Azure), Data Structures & Algorithms (C++), Operating Systems (Linux), Object-Oriented Programming (Java), and Computer Networks (Wireshark).',
+      'Administered Cyber Security & Cloud Computing lab infrastructure, setting up safe isolated virtualization sandboxes for exploit testing and network packet analysis.',
+      'Reviewed 300+ student codebase submissions per semester, enforcing Clean Architecture, Big-O algorithmic efficiency, and defensive coding standards.',
+    ],
+    skills: [
+      'Golang',
+      'Python',
+      'Kali Linux',
+      'Azure Cloud',
+      'Java OOP',
+      'C++',
+      'Wireshark',
+      'Code Review',
+      'Teaching & Mentorship',
+    ],
+  },
+];
+

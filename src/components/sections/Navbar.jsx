@@ -4,6 +4,7 @@ import { HiOutlineBars3, HiXMark, HiOutlineSun, HiOutlineMoon } from 'react-icon
 
 const links = [
   { label: 'About', href: '#about' },
+  { label: 'Experience', href: '#experience' },
   { label: 'Expertise', href: '#expertise' },
   { label: 'Stack', href: '#techstack' },
   { label: 'Work', href: '#projects' },
@@ -55,7 +56,7 @@ export default function Navbar() {
         </a>
 
         {/* Desktop */}
-        <div className="hidden items-center gap-8 md:flex">
+        <div className="hidden items-center gap-7 md:flex">
           {links.map((l) => (
             <a
               key={l.label}
@@ -65,6 +66,14 @@ export default function Navbar() {
               {l.label}
             </a>
           ))}
+          <a
+            href="/Setiawan_Muhammad_Portfolio.pdf"
+            download="Setiawan_Muhammad_Portfolio.pdf"
+            className="border border-[var(--color-border)] bg-[var(--color-bg-surface)] px-2.5 py-1 text-[11px] font-mono uppercase tracking-wider text-[var(--color-text-primary)] hover:border-[var(--color-accent)] hover:text-[var(--color-accent)] transition-colors"
+            title="Download PDF Portfolio"
+          >
+            PDF CV
+          </a>
           <button
             onClick={toggleTheme}
             className="text-[var(--color-text-tertiary)] hover:text-[var(--color-text-secondary)] transition-colors duration-300 cursor-pointer"
@@ -76,6 +85,13 @@ export default function Navbar() {
 
         {/* Mobile toggle */}
         <div className="flex items-center gap-4 md:hidden">
+          <a
+            href="/Setiawan_Muhammad_Portfolio.pdf"
+            download="Setiawan_Muhammad_Portfolio.pdf"
+            className="border border-[var(--color-border)] bg-[var(--color-bg-surface)] px-2 py-0.5 text-[10px] font-mono uppercase tracking-wider text-[var(--color-text-primary)]"
+          >
+            PDF
+          </a>
           <button
             onClick={toggleTheme}
             className="text-[var(--color-text-primary)]"
@@ -114,6 +130,14 @@ export default function Navbar() {
                   {l.label}
                 </a>
               ))}
+              <a
+                href="/Setiawan_Muhammad_Portfolio.pdf"
+                download="Setiawan_Muhammad_Portfolio.pdf"
+                onClick={() => setOpen(false)}
+                className="mt-2 inline-flex items-center justify-center border border-[var(--color-accent)] bg-[var(--color-accent)]/10 px-4 py-2 text-xs font-mono uppercase tracking-wider text-[var(--color-accent)]"
+              >
+                Download PDF Portfolio
+              </a>
             </div>
           </motion.div>
         )}

@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Setiawan Muhammad — Engineering & Cybersecurity Portfolio</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 12mm 14mm 12mm 14mm;
+    }
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 8.5pt;
+      line-height: 1.42;
+      color: #1a1a1f;
+      background: #ffffff;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    /* Layout structure */
+    .header {
+      border-bottom: 2px solid #111116;
+      padding-bottom: 7px;
+      margin-bottom: 9px;
+    }
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    h1 {
+      font-size: 19pt;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #0e0e11;
+      text-transform: uppercase;
+    }
+    .tagline {
+      font-size: 8.8pt;
+      font-weight: 700;
+      color: #8b2525;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-top: 2px;
+    }
+    .contact-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 8pt;
+      color: #44444a;
+      margin-top: 5px;
+      padding-top: 5px;
+      border-top: 1px dashed #ccc;
+    }
+    .contact-item strong {
+      color: #111;
+    }
+    a {
+      color: #1a1a1f;
+      text-decoration: none;
+    }
+
+    /* Section Styling */
+    .section {
+      margin-bottom: 9px;
+      page-break-inside: auto;
+    }
+    .section-title {
+      font-size: 9pt;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #0e0e11;
+      border-bottom: 1.2px solid #222;
+      padding-bottom: 2px;
+      margin-bottom: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .section-title span.sub {
+      font-size: 7.5pt;
+      font-weight: 600;
+      color: #666;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+
+    .summary-text {
+      font-size: 8.4pt;
+      color: #2a2a30;
+      line-height: 1.42;
+      text-align: justify;
+    }
+
+    /* Skills Grid */
+    .skills-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 8pt;
+      margin-top: 2px;
+    }
+    .skills-table tr {
+      border-bottom: 1px solid #eee;
+    }
+    .skills-table td {
+      padding: 3px 4px;
+      vertical-align: top;
+    }
+    .skills-category {
+      font-weight: 700;
+      color: #111;
+      width: 22%;
+      white-space: nowrap;
+    }
+    .skills-list {
+      color: #333;
+    }
+
+    /* Experience & Projects */
+    .item {
+      margin-bottom: 8px;
+      page-break-inside: avoid;
+    }
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 2px;
+    }
+    .item-title {
+      font-size: 8.8pt;
+      font-weight: 700;
+      color: #0e0e11;
+    }
+    .item-company {
+      font-weight: 600;
+      color: #444;
+    }
+    .item-badge {
+      display: inline-block;
+      font-size: 6.8pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 1px 4px;
+      border-radius: 2px;
+      background: #f0f0f2;
+      color: #333;
+      border: 1px solid #ccc;
+      margin-left: 4px;
+      letter-spacing: 0.3px;
+    }
+    .item-badge.alert {
+      background: #fcf1f1;
+      color: #8b1e1e;
+      border-color: #e5b0b0;
+    }
+    .item-meta {
+      font-size: 7.8pt;
+      color: #666;
+      font-family: monospace;
+      white-space: nowrap;
+    }
+    .item-desc {
+      font-size: 8pt;
+      color: #333;
+      margin-bottom: 3px;
+      line-height: 1.36;
+    }
+
+    /* Bullet lists */
+    ul.bullet-list {
+      list-style-type: none;
+      padding-left: 0;
+      margin-top: 2px;
+    }
+    ul.bullet-list li {
+      position: relative;
+      padding-left: 11px;
+      margin-bottom: 2.5px;
+      font-size: 7.9pt;
+      line-height: 1.34;
+      color: #2b2b30;
+    }
+    ul.bullet-list li::before {
+      content: "▪";
+      position: absolute;
+      left: 1px;
+      top: -1px;
+      font-size: 7pt;
+      color: #8b2525;
+    }
+
+    /* Solo SOC Matrix Box */
+    .matrix-box {
+      border: 1px solid #dcdce0;
+      background: #fafafc;
+      padding: 5px 7px;
+      margin: 4px 0 5px 0;
+      border-left: 3px solid #8b2525;
+      page-break-inside: avoid;
+    }
+    .matrix-title {
+      font-size: 7.8pt;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      color: #8b2525;
+      margin-bottom: 3px;
+    }
+    .matrix-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 6px;
+    }
+    .matrix-col {
+      font-size: 7.4pt;
+      line-height: 1.3;
+      background: #ffffff;
+      border: 1px solid #e5e5ea;
+      padding: 4px;
+    }
+    .matrix-col-title {
+      font-weight: 700;
+      color: #111;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 2px;
+      margin-bottom: 3px;
+      text-transform: uppercase;
+      font-size: 7pt;
+    }
+
+    /* Projects Compact Grid */
+    .project-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 7px 10px;
+    }
+    .project-card {
+      border: 1px solid #e2e2e6;
+      padding: 6px 8px;
+      background: #fdfdfd;
+      page-break-inside: avoid;
+    }
+    .project-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 2px;
+    }
+    .project-name {
+      font-weight: 700;
+      font-size: 8.4pt;
+      color: #0e0e11;
+    }
+    .project-tech {
+      font-size: 7.2pt;
+      color: #666;
+      font-family: monospace;
+      margin-top: 1px;
+    }
+    .project-narrative {
+      font-size: 7.8pt;
+      color: #333;
+      line-height: 1.34;
+      margin-top: 3px;
+    }
+
+    .page-break {
+      page-break-before: always;
+    }
+
+    /* Two column section */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .page-indicator {
+      font-size: 7pt;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 2px;
+      display: flex;
+      justify-content: space-between;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== PAGE 1 ==================== -->
+  <header class="header">
+    <div class="header-top">
+      <div>
+        <h1>Setiawan Muhammad</h1>
+        <div class="tagline">Software Engineer &middot; DevOps &amp; Cybersecurity Specialist (Solo L1/L2/L3 Operator)</div>
+      </div>
+      <div style="text-align: right; font-size: 8pt; color: #555;">
+        <span>Surabaya, Indonesia &middot; Remote Ready</span>
+      </div>
+    </div>
+    <div class="contact-bar">
+      <div class="contact-item"><strong>Email:</strong> setiawanmuhammad3@gmail.com</div>
+      <div class="contact-item">&bull;</div>
+      <div class="contact-item"><strong>Phone:</strong> +62 812-2526-3074</div>
+      <div class="contact-item">&bull;</div>
+      <div class="contact-item"><strong>GitHub:</strong> github.com/awanmh</div>
+      <div class="contact-item">&bull;</div>
+      <div class="contact-item"><strong>LinkedIn:</strong> linkedin.com/in/setiawan-muhammad</div>
+      <div class="contact-item">&bull;</div>
+      <div class="contact-item"><strong>Portfolio:</strong> setiawan-muhammad.netlify.app</div>
+    </div>
+  </header>
+
+  <!-- PROFESSIONAL SUMMARY -->
+  <section class="section">
+    <div class="section-title">
+      <span>Executive Summary</span>
+      <span class="sub">Defensive &amp; Offensive Security &middot; Production Infrastructure &middot; Distributed Systems</span>
+    </div>
+    <p class="summary-text">
+      Disciplined Software, DevOps, and Cybersecurity Engineer with hands-on production ownership spanning solo L1/L2/L3 security operations, high-availability Linux infrastructure, and high-concurrency software architectures. Proven track record at <strong>DoubleLogic</strong> solely orchestrating the entire security lifecycle across 7+ production Linux servers (incident response, RCE backdoor eradication, WAF virtual patching, and AI Red Teaming) alongside zero-downtime database disaster recovery pipelines (MySQL &amp; MongoDB to Cloudflare R2). Adept in high-throughput backend engineering (Golang, Python, PostgreSQL concurrency controls) and academic mentorship as a Telkom University CS Teaching Assistant.
+    </p>
+  </section>
+
+  <!-- TECHNICAL COMPETENCIES -->
+  <section class="section">
+    <div class="section-title">
+      <span>Technical Competencies</span>
+      <span class="sub">Core Engineering &amp; Operational Stack</span>
+    </div>
+    <table class="skills-table">
+      <tr>
+        <td class="skills-category">Cybersecurity &amp; SOC:</td>
+        <td class="skills-list"><strong>Solo L1/L2/L3 Operations</strong>, Incident Response &amp; Memory Forensics (IOC extraction), Web Application Penetration Testing, <strong>AI Red Teaming &amp; LLM Safety (Prompt Injection)</strong>, Cloudflare WAF Tuning &amp; Virtual Patching, STRIDE Threat Modeling, OWASP Top 10, IAM Auditing, Linux Kernel/SSH Hardening.</td>
+      </tr>
+      <tr>
+        <td class="skills-category">DevOps &amp; Infrastructure:</td>
+        <td class="skills-list">Docker &amp; Docker Compose, Linux Administration (Ubuntu/Debian), Nginx Load Balancing &amp; Reverse Proxy, Cloudflare R2 / Exabytes Encrypted DR (RPO &lt; 1h), Grafana &amp; Prometheus Telemetry, Timezone-aware GPU Auto-Scheduler, CI/CD (GitHub Actions), Bash Automation.</td>
+      </tr>
+      <tr>
+        <td class="skills-category">Backend &amp; Languages:</td>
+        <td class="skills-list"><strong>Golang</strong> (Gin, Fiber, Concurrency, Mutex, pgx), <strong>Python</strong> (FastAPI, Flask, Asyncio, Scikit-Learn), <strong>TypeScript/JavaScript</strong> (Node.js, Express, Next.js, React 19), <strong>PHP</strong> (Laravel 11/12, Filament v3), Java OOP, C++, Dart (Flutter).</td>
+      </tr>
+      <tr>
+        <td class="skills-category">Databases &amp; Systems:</td>
+        <td class="skills-list">PostgreSQL (Pessimistic Locking `SELECT ... FOR UPDATE`, Composite Indexing), Redis 7 (Pub/Sub, Distributed Locking, TTL Queues), MySQL 8, MongoDB, ChromaDB (Vector Store), SQLite.</td>
+      </tr>
+      <tr>
+        <td class="skills-category">Software Architecture:</td>
+        <td class="skills-list">Clean Architecture, Hexagonal / Ports &amp; Adapters, Microservices, Event-Driven Streaming, Race Condition Mitigation, RESTful APIs, WebSockets, RAG (Retrieval-Augmented Generation).</td>
+      </tr>
+    </table>
+  </section>
+
+  <!-- WORK EXPERIENCE PART 1 (DOUBLELOGIC) -->
+  <section class="section">
+    <div class="section-title">
+      <span>Professional Work Experience</span>
+      <span class="sub">Production Infrastructure &amp; Security Operations</span>
+    </div>
+
+    <!-- DOUBLELOGIC CYSEC -->
+    <div class="item">
+      <div class="item-header">
+        <div>
+          <span class="item-title">Cyber Security Operations &amp; Red Team Engineer</span>
+          <span class="item-company">&mdash; DoubleLogic</span>
+          <span class="item-badge alert">Solo L1/L2/L3 Operator</span>
+          <span class="item-badge">Full-Time Remote</span>
+        </div>
+        <div class="item-meta">Post-Promotion &ndash; Present</div>
+      </div>
+      <p class="item-desc">
+        Solely led defensive and offensive security operations across 7+ production Linux servers, safeguarding proprietary AI services, databases, and client web endpoints without secondary staff.
+      </p>
+
+      <!-- SOLO SOC MATRIX -->
+      <div class="matrix-box">
+        <div class="matrix-title">Single-Operator Security Lifecycle Execution (Solo L1 &middot; L2 &middot; L3)</div>
+        <div class="matrix-grid">
+          <div class="matrix-col">
+            <div class="matrix-col-title">Level 1 &middot; Triage &amp; Telemetry</div>
+            <div>&bull; Real-time alert triage &amp; log ingestion across 7 production host servers.</div>
+            <div>&bull; Monitored UFW/iptables firewall event logs &amp; authentication anomalies.</div>
+            <div>&bull; Instant incident routing via custom MS Teams webhook pipelines.</div>
+          </div>
+          <div class="matrix-col">
+            <div class="matrix-col-title">Level 2 &middot; Forensics &amp; Response</div>
+            <div>&bull; Investigated &amp; eradicated active RCE backdoor in DrTKola/YEG (Server 139).</div>
+            <div>&bull; Led forensic root-cause analysis on PMCare Ameyo attack vector.</div>
+            <div>&bull; Emergency post-incident malware &amp; rootkit scans across all 7 servers.</div>
+          </div>
+          <div class="matrix-col">
+            <div class="matrix-col-title">Level 3 &middot; Red Team &amp; AI Safety</div>
+            <div>&bull; Engineered Cloudflare WAF tuning &amp; virtual patching against zero-days.</div>
+            <div>&bull; Simulated internal lateral movement, privilege escalation, &amp; BOLA audits.</div>
+            <div>&bull; Conducted AI Red Teaming: prompt injection &amp; LLM agent jailbreak defense.</div>
+          </div>
+        </div>
+      </div>
+
+      <ul class="bullet-list">
+        <li><strong>Infrastructure Hardening:</strong> Audited IAM access, rotated SSH keys, eliminated weak passwords, and enforced strict PAM/UFW rules across all nodes.</li>
+        <li><strong>Tooling &amp; Automation:</strong> Authored custom Python security scripts for automated endpoint recon, port auditing, and database access control verification.</li>
+      </ul>
+    </div>
+
+    <!-- DOUBLELOGIC DEVOPS -->
+    <div class="item">
+      <div class="item-header">
+        <div>
+          <span class="item-title">DevOps &amp; Infrastructure Engineer</span>
+          <span class="item-company">&mdash; DoubleLogic</span>
+          <span class="item-badge">Initial Tenure</span>
+        </div>
+        <div class="item-meta">Remote &middot; Cloud Infrastructure</div>
+      </div>
+      <ul class="bullet-list">
+        <li><strong>Server Fleet Management:</strong> Administered dozens of Ubuntu Linux servers across Production, Staging, and GPU clusters, maintaining 99.9%+ availability.</li>
+        <li><strong>Cost Optimization:</strong> Engineered a timezone-aware GPU auto-scheduler script, slashing idle cloud compute overhead substantially during off-peak hours.</li>
+        <li><strong>Disaster Recovery Automation:</strong> Built encrypted database backup pipelines (MySQL &amp; MongoDB) replicated to Cloudflare R2 and Exabytes with verified automated restore drills (RPO &lt; 1 hour via SSH tunneling).</li>
+        <li><strong>Observability &amp; Middleware:</strong> Deployed centralized Grafana monitoring stacks (CPU, RAM, Disk, Nginx traffic) with Teams alerting; authored Python Flask/Gunicorn webhook services for high-throughput email and attachment ingest.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ==================== PAGE 2 ==================== -->
+  <div class="page-break"></div>
+
+  <div class="page-indicator">
+    <span>Setiawan Muhammad &middot; Portfolio</span>
+    <span>Page 2 / 3</span>
+  </div>
+
+  <!-- WORK EXPERIENCE PART 2 -->
+  <section class="section">
+    <div class="section-title">
+      <span>Professional Work Experience (Continued)</span>
+      <span class="sub">Client Engagements &middot; Academic Leadership</span>
+    </div>
+
+    <!-- FREELANCE -->
+    <div class="item">
+      <div class="item-header">
+        <div>
+          <span class="item-title">Software Engineer &amp; Security Researcher</span>
+          <span class="item-company">&mdash; Independent Consultancy / Client Engagements (Upwork)</span>
+          <span class="item-badge">Contract</span>
+        </div>
+        <div class="item-meta">2023 &ndash; Present</div>
+      </div>
+      <ul class="bullet-list">
+        <li><strong>API Integration &amp; Production Bug Fixing:</strong> Refactored mission-critical WhatsApp integrations using Evolution API on production servers, resolving race conditions, connection timeouts, and memory leaks.</li>
+        <li><strong>Helpdesk &amp; Ticketing Infrastructure:</strong> Deployed and customized UVdesk enterprise platforms including multi-mailbox integration and automated workflow routing.</li>
+        <li><strong>Wellness Booking Engine:</strong> Architected end-to-end booking and scheduling web platforms for wellness businesses with automated transactional billing and notifications.</li>
+        <li><strong>Vulnerability Research:</strong> Identified, documented, and responsibly patched critical vulnerabilities (SQLi, Stored XSS, BOLA/IDOR) on client web architectures.</li>
+      </ul>
+    </div>
+
+    <!-- TELKOM UNIVERSITY -->
+    <div class="item">
+      <div class="item-header">
+        <div>
+          <span class="item-title">Computer Science Laboratory &amp; Teaching Assistant</span>
+          <span class="item-company">&mdash; Telkom University</span>
+          <span class="item-badge">Academic Appointment</span>
+        </div>
+        <div class="item-meta">Sep 2023 &ndash; Present &middot; Surabaya, ID</div>
+      </div>
+      <ul class="bullet-list">
+        <li><strong>Technical Instruction:</strong> Mentored 100+ undergraduate engineering students across 8 subjects: Algorithms &amp; Programming (Golang), Machine Learning (Python), Information System Security (Kali Linux), Cloud Computing (Azure), Data Structures (C++), Operating Systems (Linux), OOP (Java), and Computer Networks (Wireshark).</li>
+        <li><strong>Lab &amp; Code Governance:</strong> Maintained Cyber Security &amp; Cloud Computing lab environments; conducted weekly code reviews on 300+ submissions per semester, enforcing Clean Architecture, SOLID principles, and Big-O efficiency.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- FEATURED SIGNATURE PROJECTS PART 1 -->
+  <section class="section">
+    <div class="section-title">
+      <span>Featured Signature Projects &middot; Distributed Systems &amp; Concurrency</span>
+      <span class="sub">High-Performance Core Architectures</span>
+    </div>
+
+    <div class="project-grid">
+      <!-- Project 1: ForgeFlow -->
+      <div class="project-card">
+        <div class="project-card-header">
+          <span class="project-name">ForgeFlow</span>
+          <span class="item-meta">Go &middot; Postgres &middot; Redis &middot; Docker</span>
+        </div>
+        <div class="project-tech">Distributed Workflow Orchestration Platform</div>
+        <p class="project-narrative">
+          Engineered a self-hosted, distributed task execution engine in Go with PostgreSQL-backed state persistence, Redis Pub/Sub coordination, and graceful worker shutdown. Guaranteed at-least-once task delivery under worker node failures.
+        </p>
+      </div>
+
+      <!-- Project 2: NOVA AI Agent -->
+      <div class="project-card">
+        <div class="project-card-header">
+          <span class="project-name">NOVA AI Coding Agent</span>
+          <span class="item-meta">Go &middot; Bubble Tea &middot; Ollama &middot; AST</span>
+        </div>
+        <div class="project-tech">Autonomous Zero-Leak Terminal Coding Agent</div>
+        <p class="project-narrative">
+          Engineered model-agnostic coding agent in Go using Hexagonal Architecture. Features interactive TUI (Bubble Tea), AST project workspace indexing, deterministic capability routing with JSON Schema validation, and zero telemetry leaks.
+        </p>
+      </div>
+
+      <!-- Project 3: AURIX Engine -->
+      <div class="project-card">
+        <div class="project-card-header">
+          <span class="project-name">AURIX v11.5b Engine</span>
+          <span class="item-meta">Go &middot; Python &middot; Redis 7 &middot; Next.js</span>
+        </div>
+        <div class="project-tech">Low-Latency Algorithmic Trading &amp; Quant Engine</div>
+        <p class="project-narrative">
+          Distributed quant trading platform decoupled across 8 Docker containers. Features sub-millisecond WebSocket market bus in Go, Layer-4 capital protection with Redis `EXPIREAT` TTL caps (-2.0%), and forward-validated 71.4% win rate.
+        </p>
+      </div>
+
+      <!-- Project 4: SafeTicket & FlashSale -->
+      <div class="project-card">
+        <div class="project-card-header">
+          <span class="project-name">SafeTicket &amp; FlashSale</span>
+          <span class="item-meta">Go &middot; PostgreSQL &middot; K6 &middot; Nginx</span>
+        </div>
+        <div class="project-tech">High-Concurrency Booking &amp; Transaction Engine</div>
+        <p class="project-narrative">
+          Engineered high-throughput flash-sale backend in Go comparing concurrency mechanisms. Enforced PostgreSQL Pessimistic Locking (`SELECT ... FOR UPDATE`), guaranteeing zero overselling under multi-thousand concurrent virtual user stress tests.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PAGE 3 ==================== -->
+  <div class="page-break"></div>
+
+  <div class="page-indicator">
+    <span>Setiawan Muhammad &middot; Portfolio</span>
+    <span>Page 3 / 3</span>
+  </div>
+
+  <!-- FEATURED SIGNATURE PROJECTS PART 2 -->
+  <section class="section">
+    <div class="section-title">
+      <span>Featured Signature Projects &middot; Security, AI &amp; Enterprise Platforms</span>
+      <span class="sub">Offensive Security &middot; Enterprise SaaS &middot; Computer Vision</span>
+    </div>
+
+    <div class="project-grid">
+      <!-- Project 5: Stockbit AppSec Sim -->
+      <div class="project-card">
+        <div class="project-card-header">
+          <span class="project-name">Stockbit AppSec Simulation</span>
+          <span class="item-meta">Go &middot; STRIDE &middot; OWASP &middot; Docker</span>
+        </div>
+        <div class="project-tech">Fintech Secure SDLC &amp; Threat Mitigation Prototype</div>
+        <p class="project-narrative">
+          End-to-end Secure SDLC implementation executing STRIDE threat modeling, defensive Clean Architecture, contextual RBAC, and automated security unit test suites mitigating OWASP Top 10 vulnerabilities in financial transactions.
+        </p>
+      </div>
+
+      <!-- Project 6: Pentara -->
+      <div class="project-card">
+        <div class="project-card-header">
+          <span class="project-name">Pentara (Pentest Nusantara)</span>
+          <span class="item-meta">Laravel 11 &middot; PHP 8.2 &middot; Python &middot; MySQL</span>
+        </div>
+        <div class="project-tech">Multi-Tenant B2B SaaS Bug Bounty Platform</div>
+        <p class="project-narrative">
+          Architected multi-tenant vulnerability disclosure SaaS with granular RBAC (Admin, Enterprise, Researcher), automated CVSS 3.1 scoring engine, encrypted PoC file handling, and executive PDF audit report generation.
+        </p>
+      </div>
+
+      <!-- Project 7: BelanjaKu -->
+      <div class="project-card">
+        <div class="project-card-header">
+          <span class="project-name">BelanjaKu</span>
+          <span class="item-meta">Next.js 15 &middot; Express &middot; PostgreSQL &middot; Zustand</span>
+        </div>
+        <div class="project-tech">Production Decoupled E-Commerce Ecosystem</div>
+        <p class="project-narrative">
+          Production-grade e-commerce platform with decoupled architecture. Implemented persistent client-server cart sync via Zustand, structured prompt product generation, JWT auth, and automated test suites.
+        </p>
+      </div>
+
+      <!-- Project 8: Veritas Efficiency Beast -->
+      <div class="project-card">
+        <div class="project-card-header">
+          <span class="project-name">Veritas (Efficiency Beast)</span>
+          <span class="item-meta">Python &middot; FastAPI &middot; ChromaDB &middot; RAG</span>
+        </div>
+        <div class="project-tech">Zero-Hallucination Enterprise RAG Platform</div>
+        <p class="project-narrative">
+          Local-first document Q&amp;A platform with ChromaDB vector store. Features deterministic chunking, mathematical source attribution guardrails eliminating hallucinations, and sub-200ms document retrieval.
+        </p>
+      </div>
+
+      <!-- Project 9: The Money Maker -->
+      <div class="project-card">
+        <div class="project-card-header">
+          <span class="project-name">The Money Maker</span>
+          <span class="item-meta">Go &middot; Python &middot; Isolation Forest &middot; Redis</span>
+        </div>
+        <div class="project-tech">Cross-Exchange Triangular Arbitrage Engine</div>
+        <p class="project-narrative">
+          High-frequency arbitrage engine pairing concurrent Go WebSocket stream handlers with Python Scikit-Learn Isolation Forest for real-time fakeout liquidity and anomaly filtering across Binance and Bybit.
+        </p>
+      </div>
+
+      <!-- Project 10: VisionGuard YOLO11 -->
+      <div class="project-card">
+        <div class="project-card-header">
+          <span class="project-name">VisionGuard YOLO11</span>
+          <span class="item-meta">Python &middot; YOLO11 &middot; PyTorch &middot; Computer Vision</span>
+        </div>
+        <div class="project-tech">Real-Time Object Detection &amp; Logo Identifier</div>
+        <p class="project-narrative">
+          Fine-tuned YOLO11 model detecting evasive illicit site branding and logos across diverse screenshot layouts in real-time with sub-20ms inference and high precision mAP.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION & CERTIFICATIONS IN 2 COLUMNS -->
+  <div class="two-col" style="margin-top: 6px;">
+    <!-- EDUCATION -->
+    <section class="section">
+      <div class="section-title">
+        <span>Education</span>
+      </div>
+      <div class="item">
+        <div class="item-header">
+          <div>
+            <span class="item-title">Bachelor of Science in Informatics</span>
+            <div class="item-company">Telkom University &middot; Surabaya, ID</div>
+          </div>
+          <div class="item-meta">Expected 2027</div>
+        </div>
+        <p class="item-desc" style="margin-top: 3px;">
+          <strong>Current Standing:</strong> Semester 6/7 &middot; <strong>Cumulative GPA:</strong> 3.46 / 4.00<br>
+          <strong>Relevant Focus:</strong> Distributed Systems, Computer Networks &amp; Protocols, Database Systems, Operating Systems, Information Security, Clean OOP.
+        </p>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section class="section">
+      <div class="section-title">
+        <span>Certifications &amp; Credentials</span>
+      </div>
+      <ul class="bullet-list">
+        <li><strong>Code Generation &amp; Optimization with IBM Granite</strong> &mdash; IBM (2024)</li>
+        <li><strong>Ethical Hacking &amp; Penetration Testing from Scratch</strong> &mdash; Udemy (2024)</li>
+        <li><strong>Mastering Linux &amp; System Administration</strong> &mdash; Udemy (2023)</li>
+        <li><strong>Backend Development with JavaScript</strong> &mdash; Dicoding (2023)</li>
+        <li><strong>Fundamentals of Artificial Intelligence</strong> &mdash; Dicoding (2024)</li>
+        <li><strong>Android Application Development</strong> &mdash; Dicoding (2023)</li>
+      </ul>
+    </section>
+  </div>
+
+  <!-- LANGUAGES & OPERATIONAL READINESS -->
+  <section class="section" style="margin-top: 4px;">
+    <div class="section-title">
+      <span>Languages &amp; Operational Readiness</span>
+    </div>
+    <div style="font-size: 8pt; color: #333; line-height: 1.4;">
+      <strong>Indonesian:</strong> Native / Bilingual Proficiency &nbsp;&bull;&nbsp;
+      <strong>English:</strong> Professional Working Proficiency (Technical Architecture, Audits, RFCs, &amp; Global Client Delivery)<br>
+      <strong>Availability:</strong> Full-Time / Contract Remote &middot; WFA Ready &middot; Immediate Operational Deployment
+    </div>
+  </section>
+
+</body>
+</html>

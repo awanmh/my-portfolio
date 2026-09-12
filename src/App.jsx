@@ -9,6 +9,7 @@ import { projects } from './data/portfolio';
 
 // Lazy load below-fold
 const About = lazy(() => import('./components/sections/About'));
+const Experience = lazy(() => import('./components/sections/Experience'));
 const Expertise = lazy(() => import('./components/sections/Expertise'));
 const TechStack = lazy(() => import('./components/sections/TechStack'));
 const Projects = lazy(() => import('./components/sections/Projects'));
@@ -63,6 +64,7 @@ export default function App() {
             <Hero />
             <Suspense fallback={null}>
               <About />
+              <Experience />
               <Expertise />
               <TechStack />
               <Projects projects={projects} onProjectClick={setSelectedProject} />
